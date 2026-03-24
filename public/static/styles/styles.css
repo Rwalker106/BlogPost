@@ -1,0 +1,99 @@
+:root {
+  /* Backgrounds */
+  --bg-main: #fcfaf2 !important; /* warm paper */
+  --bg-nav: #130202 !important; /* deep near-black */
+  --card-bg: #fff !important; /* soft neutral card */
+
+  /* Text */
+  --text-nav: #f3ede4 !important; /* warm light text */
+  --text-primary: #3b2f2f !important; /* espresso brown (from tablet border) */
+  --text-muted: #6f6b67 !important; /* soft gray-brown */
+
+  /* Buttons */
+  --btn-primary: #3b2f2f !important; /* espresso brown */
+  --btn-text: #f3ede4 !important; /* warm light */
+  --btn-outline: #130202 !important; /* dark outline */
+  --btn-hover-bg: #000 !important; /* pure black hover */
+  --btn-hover-color: #fff !important; /* white hover text */
+
+  /* Accents */
+  --accent-silver: #c0c0c0 !important; /* metallic silver (from pen) */
+  --accent-silver-dark: #a9b0b8 !important; /* cooler silver */
+  /* Cards */
+  --card-border: #3b2f2f !important; /* cooler silver border */
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+title {
+  color: var(--text-primary);
+}
+
+h1 {
+  color: var(--text-nav);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.navbar {
+  background-color: var(--bg-nav) !important;
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar a {
+  color: var(--text-nav);
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+.main-img {
+  max-width: 100%;
+  object-fit: cover;
+  height: 100%;
+  max-height: 600px;
+}
+
+.card-img-top {
+  max-width: 100px;
+}
+
+.card {
+  width: 70%;
+  height: 100%;
+  border: .5px solid var(--card-border) !important;
+  padding: 2px;
+  background-color: var(--card-bg) !important;
+}
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.card-text {
+  font-size: 1rem;
+  color: #333;
+}
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid #ddd;
+  font-size: 0.7rem;
+}
+.edit-btn:hover {
+  background-color: var(--btn-hover-bg) !important;
+  color: var(--btn-hover-color) !important;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

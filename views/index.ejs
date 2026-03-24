@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <title>Capstone Blog</title>
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <header><%- include('partials/header') %></header>
+    <main class="flex-grow-1">
+      <div class="container-fluid mt-4">
+        <div class="row">
+          <!--Left Column-->
+          <div
+            class="col-lg-6 d-flex justify-content-center align-items-start boarder rounded mt-10 py-5"
+          >
+          <img src="https://wallpapers.com/images/high/blogging-backdrop-8ifwoxtwf7mdg268.webp" class="img-fluid rounded-4 shadow-sm w-100 main-img" alt-text="Blogging Backdrop"> 
+          </div>
+
+          <div class="col-md-6 boarder rounded p-3">
+                     <!-- Section Title -->
+              <div class="row">
+            <h2 class="mb-1 text-center ">Recent Blog Posts</h2>
+              </div>
+              <div class="row">
+                <!-- Blog Post Card -->
+                <% if (blogPosts.length === 0) { %>
+                  <p class="text-center">No blog posts yet. Be the first to add one!</p>
+                <% } else { %>
+                  <% blogPosts.forEach((post, index) => { %>
+                    <div class="col-md-12 mb-1 d-flex justify-content-center">
+                      <div class="card h-100 border-0 shadow-sm rounded-5">
+
+                        <% if (post.picture) { %>
+                          <img src="<%= post.picture %>" class="card-img-top" alt="Blog Post Image">
+                        <% } %>
+                        <div class="card-body">
+                          <h5 class="card-title"><strong><%= post.title %></strong></h5>
+                          <p class="card-text"><%= truncate(post.content, 100) %></p>
+                          <a href="/edit/<%= post.id %>" class="btn btn-dark edit-btn mt-1 w-auto " title="Edit this post">Edit</a>
+                        </div>
+                        <h5 class="card-footer bg-dark text-light">
+                          <em>
+                          By <%= post.author %> on <%= formatDate(post.createdAt) %>
+                          <% if (post.modifiedAt) { %>
+                            (✎ <%= formatDate(post.modifiedAt) %>)
+                          <% } %>
+                          </em>
+                        </h5>   
+                      </div>
+                    </div>
+                    <%if (index < blogPosts.length - 1) { %>
+                      <hr class="my-3">
+                    <% } %>
+                  <% }); %>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>
