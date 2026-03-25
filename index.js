@@ -2,6 +2,8 @@ import express from 'express';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';  
 import fs from 'fs';
+import expressEjsLayouts from 'express-ejs-layouts';
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -35,6 +37,10 @@ app.set('view engine', 'ejs');
 app.set("views", __dirname + "/views");
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(expressEjsLayouts);
+app.set('layout', 'layouts/main');
+app.set('layout extractScripts', true);
+app.set('layout extractStyles', true);  
 
 function formatDate(date) {
   return new Date(date).toLocaleDateString('en-US', {
@@ -62,10 +68,23 @@ app.get('/', (req, res) => {
 
 
 app.get('/all', (req, res) => { 
-  if (blogPosts.length > 0) {
-    blogPosts.sort((a, b) => b.createdAt - a.createdAt);
-  }
-  res.render('all', { blogPosts });
+  const page = parseInt(req.query.page) || 1;
+  const postsPerPage = 2;
+
+  blogPosts.sort((a, b) => b.createdAt - a.createdAt);
+
+  const totalPosts = blogPosts.length;
+  const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+  const start = (page - 1) * postsPerPage;
+  const end = start + postsPerPage;
+  const postsForPage = blogPosts.slice(start, end);
+
+  res.render('all', { 
+    blogPosts: postsForPage,
+    currentPage: page,
+    totalPages: totalPages
+  });
 });
 
 

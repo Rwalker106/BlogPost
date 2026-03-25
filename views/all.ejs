@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <head>
     <title>All Blog Posts</title>
-</head>
-    
-<body>
-    <header><%- include('partials/header') %></header>
+  </head>
     <main>
       <div class="container mt-4">
         <h2 class="mb-4 text-center">All Blog Posts</h2>
@@ -16,35 +10,62 @@
             <p class="text-center">No blog posts yet. Be the first to add one!</p>
           <% } else { %>
             <% blogPosts.forEach((post, index) => { %>
-              <div class="col-md-12 mb-1 d-flex justify-content-center">
-                <div class="card h-100 border-0 shadow-sm rounded-5">
+              <div class="col-md-12 mb-5 d-flex justify-content-center">
+                <div class="card border-0 shadow-sm rounded-5">
 
                   <% if (post.picture) { %>
                     <img src="<%= post.picture %>" class="card-img-top" alt="Blog Post Image">
                   <% } %>
                   <div class="card-body">
                     <h5 class="card-title"><strong><%= post.title %></strong></h5>
-                    <p class="card-text"><%= truncate(post.content, 300) %></p>    
+                    <p class="card-text"><%= truncate(post.content, 300) %></p>
                     <a href="/edit/<%= post.id %>" class="btn btn-dark edit-btn mt-1 w-auto " title="Edit this post">Edit</a>
-                        </div>
-                        <h5 class="card-footer bg-dark text-light">
-                        <em>
-                          By <%= post.author %> on <%= formatDate(post.createdAt) %>
-                          <% if (post.modifiedAt) { %>
-                            (✎ <%= formatDate(post.modifiedAt) %>)
-                          <% } %>
-                          </em>
-                        </h5>   
-                      </div>
-                    </div>
-                    <%if (index < blogPosts.length - 1) { %>
-                      <hr class="my-3">
-                    <% } %>
-                  <% }); %>
-                <% } %>
+                  </div>
+                  <h5 class="card-footer bg-dark text-light">
+                    <em>
+                      By <%= post.author %> on <%= formatDate(post.createdAt) %>
+                      <% if (post.modifiedAt) { %>
+                        (✎ <%= formatDate(post.modifiedAt) %>)
+                      <% } %>
+                    </em>
+                  </h5>
+                </div>
               </div>
-    </main>
-    <footer><%- include('partials/footer') %></footer>
+              <% if (index < blogPosts.length - 1) { %>
+                <hr class="my-3">
+              <% } %>
+            <% }); %>
+          <% } %>
+        </div>
+      </div>
+      <!-- Pagination Controls -->
+      <div class="d-flex justify-content-center mt-4">
+  <nav>
+    <ul class="pagination">
 
-</body>
-</html>
+      <% if (currentPage > 1) { %>
+        <li class="page-item">
+          <a class="page-link" href="/all?page=<%= currentPage - 1 %>">Previous</a>
+        </li>
+      <% } %>
+
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+          <a class="page-link" href="/all?page=<%= i %>"><%= i %></a>
+        </li>
+      <% } %>
+
+      <% if (currentPage < totalPages) { %>
+        <li class="page-item">
+          <a class="page-link" href="/all?page=<%= currentPage + 1 %>">Next</a>
+        </li>
+      <% } %>
+
+    </ul>
+  </nav>
+</div>
+
+    </main>
+
+
+

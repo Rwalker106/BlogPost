@@ -1,26 +1,26 @@
 :root {
   /* Backgrounds */
-  --bg-main: #fcfaf2 !important; /* warm paper */
-  --bg-nav: #130202 !important; /* deep near-black */
-  --card-bg: #fff !important; /* soft neutral card */
+  --bg-main: #fcfaf2; /* warm paper */
+  --bg-nav: #130202; /* deep near-black */
+  --card-bg: #fff; /* soft neutral card */
 
   /* Text */
-  --text-nav: #f3ede4 !important; /* warm light text */
-  --text-primary: #3b2f2f !important; /* espresso brown (from tablet border) */
-  --text-muted: #6f6b67 !important; /* soft gray-brown */
+  --text-nav: #f3ede4; /* warm light text */
+  --text-primary: #3b2f2f; /* espresso brown (from tablet border) */
+  --text-muted: #6f6b67; /* soft gray-brown */
 
   /* Buttons */
-  --btn-primary: #3b2f2f !important; /* espresso brown */
-  --btn-text: #f3ede4 !important; /* warm light */
-  --btn-outline: #130202 !important; /* dark outline */
-  --btn-hover-bg: #000 !important; /* pure black hover */
-  --btn-hover-color: #fff !important; /* white hover text */
+  --btn-primary: #3b2f2f; /* espresso brown */
+  --btn-text: #f3ede4; /* warm light */
+  --btn-outline: #130202; /* dark outline */
+  --btn-hover-bg: #000; /* pure black hover */
+  --btn-hover-color: #fff; /* white hover text */
 
   /* Accents */
-  --accent-silver: #c0c0c0 !important; /* metallic silver (from pen) */
-  --accent-silver-dark: #a9b0b8 !important; /* cooler silver */
+  --accent-silver: #c0c0c0; /* metallic silver (from pen) */
+  --accent-silver-dark: #a9b0b8; /* cooler silver */
   /* Cards */
-  --card-border: #3b2f2f !important; /* cooler silver border */
+  --card-border: #3b2f2f; /* cooler silver border */
 }
 
 body {
@@ -45,7 +45,6 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-
 
 .navbar {
   background-color: var(--bg-nav) !important;
@@ -73,7 +72,7 @@ h1 {
 .card {
   width: 70%;
   height: 100%;
-  border: .5px solid var(--card-border) !important;
+  border: 0.5px solid var(--card-border) !important;
   padding: 2px;
   background-color: var(--card-bg) !important;
 }
@@ -96,4 +95,21 @@ h1 {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+}
+/* Pagination container */
+.pagination .page-link {
+  background-color: #212529 !important; /* dark */
+  color: #fff !important;
+  border: 1px solid #000 !important;
+}
+
+.pagination .page-link:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
 }
