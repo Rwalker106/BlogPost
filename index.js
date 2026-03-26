@@ -154,6 +154,17 @@ app.post('/delete/:id', (req, res) => {
   }
 });
 
+app.get('/more/:id', (req, res) => {
+  const postId = parseInt(req.params.id);
+  const post = blogPosts.find(p => p.id === postId);  
+  if (post) {
+    
+    res.render('more', { post, noStickyFooter: true });
+  } else {
+    res.status(404).send('Post not found');
+  }
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

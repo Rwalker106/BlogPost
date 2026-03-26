@@ -24,7 +24,7 @@
                 <p class="text-center">No blog posts yet. Be the first to add one!</p>
               <% } else { %>
                 <% blogPosts.forEach((post, index) => { %>
-                  <div class="col-md-12 mb-1 d-flex justify-content-center">
+                  <div class="col-md-8 offset-md-2 mb-1 d-flex justify-content-center">
                     <div class="card border-0 shadow-sm rounded-5">
 
                       <% if (post.picture) { %>
@@ -33,7 +33,8 @@
                       <div class="card-body">
                         <h5 class="card-title"><strong><%= post.title %></strong></h5>
                         <p class="card-text"><%= truncate(post.content, 100) %></p>
-                        <a href="/edit/<%= post.id %>" class="btn btn-dark edit-btn mt-1 w-auto " title="Edit this post">Edit</a>
+                        <a href="/edit/<%= post.id %>" class="btn btn-edit btn-md rounded-pill" title="Edit this post">Edit</a>
+                        <a href="/more/<%= post.id %>" class="btn btn-espresso btn-readmore btn-md rounded-pill" title="Read More">Read More</a>
                       </div>
                       <h5 class="card-footer bg-dark text-light">
                         <em>

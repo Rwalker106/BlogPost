@@ -21,11 +21,25 @@
           </div>
           <div class="mb-3">
             <label for="picture" class="form-label">Picture</label>
-            <input type="url" class="form-control" id="picture" name="picture" required placeholder="Enter image URL">
+            <input type="url" class="form-control" id="picture" name="picture" 
+                placeholder="https://example.com/image.jpg"
+                pattern="https?://.*\.(jpg|jpeg|png|gif|webp)"
+                required>
+              <% if (typeof post !== 'undefined' && post.picture) { %>
+                  <img id="preview" src="<%= post.picture %>" class="img-fluid rounded mt-2" style="max-height: 200px;">
+                  <% } else { %>
+                  <img id="preview" class="img-fluid rounded mt-2" style="max-height: 200px; display:none;">
+              <% } %>
           </div>
 
-          <button type="submit" class="btn btn-dark mb-5" role="button" title="Add Post">Submit</button>
+          <button type="submit" class="btn btn-submit btn-md rounded-pill" role="button" title="Add Post">Submit</button>
         </form>
       </div>
     </main>
- 
+    <script>
+       const input = document.getElementById("picture");
+        const preview = document.getElementById("preview");
+
+      input.addEventListener("input", () => {preview.src = input.value;
+});
+</script>

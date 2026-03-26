@@ -37,19 +37,22 @@
           <div class="mb-3">
             <label for="picture" class="form-label">Picture URL</label>
             <input
-              type="url"
-              class="form-control"
-              id="picture"
-              name="picture"
-              value="<%= post.picture %>"
-            />
+                type="url"
+                class="form-control"
+                id="picture"
+                name="picture"
+                value="<%= post.picture %>"
+                placeholder="https://example.com/image.jpg"
+                pattern="https?://.*\.(jpg|jpeg|png|gif|webp)"
+                required
+              />
           </div>
           <div class="d-flex gap-3 mt-5 align-items-stretch">
-            <button type="submit" class="btn btn-dark mb-2 save_changes" role="button" title="Modify Post">Save Changes</button>
+            <button type="submit" class="btn btn-save" role="button" title="Modify Post">Save Changes</button>
         </form>
 
             <form action="/delete/<%= post.id %>" method="POST" data-id="<%= post.id %>" onsubmit="return confirmDelete(this.dataset.id)">
-              <button type="submit" class="btn btn-warning mb-2 delete_post" role="button" title="Delete Post">Delete</button>
+              <button type="submit" class="btn btn-delete" role="button" title="Delete Post">Delete</button>
             </form>
           </div>
         </div>

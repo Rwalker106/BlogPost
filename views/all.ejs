@@ -19,7 +19,8 @@
                   <div class="card-body">
                     <h5 class="card-title"><strong><%= post.title %></strong></h5>
                     <p class="card-text"><%= truncate(post.content, 300) %></p>
-                    <a href="/edit/<%= post.id %>" class="btn btn-dark edit-btn mt-1 w-auto " title="Edit this post">Edit</a>
+                    <a href="/edit/<%= post.id %>" class="btn btn-edit btn-md rounded-pill" title="Edit this post">Edit</a>
+                    <a href="/more/<%= post.id %>" class="btn btn-espresso btn-readmore btn-md rounded-pill" title="Read More">Read More</a>
                   </div>
                   <h5 class="card-footer bg-dark text-light">
                     <em>

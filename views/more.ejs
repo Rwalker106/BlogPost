@@ -1,0 +1,38 @@
+<head>
+    <title>Read More</title>
+</head>
+
+<main>
+    <div class="container mt-4">
+
+        <div class="article-container">
+
+            <% if (post.picture) { %>
+                <img src="<%= post.picture %>" class="article-hero" alt="Blog Post Image">
+            <% } %>
+
+            <h1 class="article-title text-center"><%= post.title %></h1>
+
+            <div class="article-body">
+                <p class="article-text"><%= post.content %></p>
+            </div>
+
+            <div class="article-meta bg-dark text-light rounded-3 p-2 mt-4">
+                <em>
+                    By <%= post.author %> on <%= formatDate(post.createdAt) %>
+                    <% if (post.modifiedAt) { %>
+                        (✎ <%= formatDate(post.modifiedAt) %>)
+                    <% } %>
+                </em>
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-outline-espresso btn-back mx-2 btn-md rounded-pill" onclick="window.history.back()">Back</button>
+            <a href="/all" class="btn btn-contrast btn-allposts btn-md rounded-pill">All Posts</a>
+            <a href="/" class="btn btn-outline-espresso btn-home mx-2 btn-md rounded-pill" title="Back to Home">Home</a>
+        </div>
+
+    </div>
+</main>
