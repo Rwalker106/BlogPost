@@ -14,7 +14,7 @@
                 <div class="card border-0 shadow-sm rounded-5">
 
                   <% if (post.picture) { %>
-                    <img src="<%= post.picture %>" class="card-img-top" alt="Blog Post Image">
+                    <img src="<%= post.picture %>" class="card-img-top" alt="<%= post.title %>">
                   <% } %>
                   <div class="card-body">
                     <h5 class="card-title"><strong><%= post.title %></strong></h5>

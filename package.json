@@ -14,5 +14,13 @@
     "ejs": "^5.0.1",
     "express": "^5.2.1",
     "express-ejs-layouts": "^2.5.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rwalker106/BlogPost.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rwalker106/BlogPost/issues"
+  },
+  "homepage": "https://github.com/Rwalker106/BlogPost#readme"
 }

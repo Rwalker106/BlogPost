@@ -10,7 +10,7 @@
           <!--Left Column-->
           <div
               class="col-lg-6 d-flex justify-content-center align-items-start boarder rounded mt-10 py-5">
-            <img src="https://wallpapers.com/images/high/blogging-backdrop-8ifwoxtwf7mdg268.webp" class="img-fluid rounded-4 shadow-sm w-100 main-img" alt-text="Blogging Backdrop">
+            <img src="https://wallpapers.com/images/high/blogging-backdrop-8ifwoxtwf7mdg268.webp" class="img-fluid rounded-4 shadow-sm w-100 main-img" alt="Blog Post on a Tablet">
           </div>
 
           <div class="col-md-6 boarder rounded p-3">
@@ -28,7 +28,7 @@
                     <div class="card border-0 shadow-sm rounded-5">
 
                       <% if (post.picture) { %>
-                        <img src="<%= post.picture %>" class="card-img-top" alt="Blog Post Image">
+                        <img src="<%= post.picture %>" class="card-img-top" alt="<%= post.title %>">
                       <% } %>
                       <div class="card-body">
                         <h5 class="card-title"><strong><%= post.title %></strong></h5>
